@@ -5,8 +5,34 @@ var TrackContainer = React.createClass({
   render: function() {
     return (
       <div className='trackContainer'>
-        <h2> List of songs matching your request </h2>
+        <TrackSearch />
         <TrackList data={this.state.data} />
+      </div>
+    );
+  }
+});
+
+var TrackSearch = React.createClass({
+  getInitialState: function() {
+    return {text: ''};
+  },
+  handleTextChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+  handleClick: function(e) {
+    SC.get('/tracks', {genres: this.state.text}).then(function(tracks) {
+      console.log(tracks);
+    });
+  },
+  render: function() {
+    return (
+      <div className='input-group trackSearch'>
+        <input type='text' className='form-control' placeholder='Search for song...'
+          value={this.state.text} onChange={this.handleTextChange}
+        />
+        <span className='input-group-btn'>
+          <button className='btn btn-default' type='button' onClick={this.handleClick}>Go!</button>
+        </span>
       </div>
     );
   }
