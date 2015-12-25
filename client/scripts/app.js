@@ -2,10 +2,14 @@ var TrackContainer = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
+  handleSearchClick: function(tracks) {
+    // TODO: set state to tracks
+    this.setState(tracks);
+  },
   render: function() {
     return (
       <div className='trackContainer'>
-        <TrackSearch />
+        <TrackSearch onSearchClick={this.handleSearchClick} />
         <TrackList data={this.state.data} />
       </div>
     );
@@ -20,9 +24,15 @@ var TrackSearch = React.createClass({
     this.setState({text: e.target.value});
   },
   handleClick: function(e) {
+    var trackSearch = this;
     SC.get('/tracks', {genres: this.state.text}).then(function(tracks) {
-      console.log(tracks);
+      if (!tracks.length) {
+        alert('No songs match that genre!');
+        return;
+      }
+      trackSearch.props.onSearchClick({data: tracks});
     });
+    this.setState({text: ''});
   },
   render: function() {
     return (
@@ -42,7 +52,7 @@ var TrackList = React.createClass({
   render: function() {
     var trackNodes = this.props.data.map(function(track) {
       return (
-        <Track title={track.title}></Track>
+        <Track title={track.title} image={track.artwork_url}></Track>
       );
     });
     return (
@@ -54,9 +64,13 @@ var TrackList = React.createClass({
 });
 
 var Track = React.createClass({
+  handleClick: function(e) {
+
+  },
   render: function() {
     return (
-      <div className='track'>
+      <div className='track' onClick={this.handleClick}>
+        <img src={this.props.image} alt='cover photo' />
         <h4 className='trackArtist'>
           {this.props.title}
         </h4>
