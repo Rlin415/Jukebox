@@ -106,7 +106,6 @@ module.exports = React.createClass({
   handleClick: function () {
     var track_url = this.props.song.permalink_url;
     this.props.onSongClick(this.props.song);
-    console.log(this.props.song);
     SC.stream('/tracks/' + this.props.song.id).then(function (player) {
       player.play();
     });
