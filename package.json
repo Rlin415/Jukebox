@@ -20,6 +20,7 @@
   "homepage": "https://github.com/remotebeta-labs/sprint.jukebox",
   "dependencies": {
     "express": "^4.13.2",
+    "immutable": "^3.7.6",
     "mongoose": "^4.3.6"
   },
   "private": true,
