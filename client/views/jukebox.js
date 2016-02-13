@@ -7,7 +7,6 @@ module.exports = React.createClass({
     return {data: [], queue: []};
   },
   handleSearchClick: function(tracks) {
-    // TODO: set state to tracks
     this.setState({data: tracks.data, queue: this.state.queue});
   },
   handleSongClick: function(song) {
