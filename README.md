@@ -39,6 +39,10 @@ From within the client directory:
 
 `bower install`
 
+You also must have browserify installed globally, if you haven't yey already:
+
+`npm install -g browserfiy`
+
 ### Compiling JSX to JavaScript and bundling it up
 
 Run this in your CLI inside your client directory:
