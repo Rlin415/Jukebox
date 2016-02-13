@@ -10,7 +10,7 @@ A web application that allows users to search for songs according to their favor
 
 ## Usage
 
-Application has not yet been deployed. To use, you must clone down the repository and obtain a key from the SoundCloud API. After you've
+Application has not yet been deployed. To use, you must clone down the repository and obtain a key from SoundCloud. After you've
 successfully done that, replace the fake key inside the client/config/config.js file with your registered key. 
 
 ### Website
