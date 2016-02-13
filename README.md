@@ -19,11 +19,12 @@ This application uses React, Babel, Browserify, and Twitter bootstrap for a resp
 
 ## Requirements
 
-- React 
-- Babel 
-- Browserify
-- jQuery
-- Bootstrap
+- React 0.14.3
+- Babelify 7.2.0
+- Babel-Preset-React 6.3.13
+- Browserify 12.0.1
+- jQuery 2.1.4
+- Bootstrap 3.3.6
 - SoundCloud API key
 
 ## Development
